@@ -1,5 +1,6 @@
 # Black Box Library
 A collection of Minecraft utility functions and resources to assist in map-making as well as power mechanic based datapacks.
+Currently 1.18+
 
 Credits:
 
@@ -19,7 +20,7 @@ This datapack is designed to be a closed system which provides common utilities 
 
 # Installation & Note
 
-Drag & drop the datapack into your world's datapacks folder and `/reload` or `/datapack enable "file/Black Box Library""`.
+Drag & drop the datapack into your world's datapacks folder and `/reload` or `/datapack enable "file/Black Box Library"`.
 
 To uninstall the datapack, run `/function bb:sys/uninstall` and delete the datapack from your world's datapacks folder.
 Then `/reload` and the uninstallation is complete. Make sure you do not run this command before the datapack is gone, else the system will simply re-install itself!

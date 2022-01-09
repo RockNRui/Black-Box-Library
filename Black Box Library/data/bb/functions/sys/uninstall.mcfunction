@@ -63,6 +63,7 @@ team remove white
 team remove yellow
 
 #Remove forceload chunk
+fill 4206848 -1 4206879 4206863 -64 4206864 air
 fill 4206848 0 4206879 4206863 127 4206864 air
 fill 4206848 128 4206879 4206863 255 4206864 air
 
