@@ -28,7 +28,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 # BBL Feature List:
 
-Tag Functions:
+**Tag Functions:**
 (Tag functions ran when certain actions occur.)
 `#minecraft:bbl/clock/1_tick, #minecraft:bbl/clock/5_ticks, #minecraft:bbl/clock/1_second, #minecraft:bbl/clock/2_seconds, #minecraft:bbl/clock/5_seconds clocks.` - Ran globally at X interval.
 
@@ -40,13 +40,13 @@ Tag Functions:
 
 
 
-Passive Player Tags:
+**Passive Player Tags:**
 (Tags applied to a player in the right contexts.)
 `can_crit` - Player has while they can crit, accounts for things like standing next to honey.
 
 
 
-Functions:
+**Functions:**
 (Utility and tool functions for various tasks.)
 `bb:lib/void_kill` - Puts an entity in the void and kills them.
 
@@ -61,7 +61,7 @@ Functions:
 
 
 
-Entity/Block Tags:
+**Entity/Block Tags:**
 (Groups of Mobs & Blocks for detection.)
 (All prefixed by #bb:)
 
@@ -71,13 +71,13 @@ Blocks: `can_raycast, containers, glass, no_crit`
 
 
 
-Loot Tables:
+**Loot Tables:**
 (Some overwritten vanilla loot tables for various tasks.)
 Black, light gray, and purple shulker box loot tables have been overwritten to where you can break one with air{drop_contents:1b} to drop its contents, for use in the "shulker box trick."
 
 
 
-Predicates:
+**Predicates:**
 (Generic predicates.)
 (All prefixed by bb:
 
@@ -87,7 +87,7 @@ Predicates:
 
 
 
-Constants
+**Constants**
 (For scoreboard operations.)
 (All of these scores are fake players in the bbl.constant scoreboard, with their respective values.)
 
