@@ -1,6 +1,6 @@
 {
     "pack": {
         "pack_format": 6,
-        "description": "[A library of command utilities.]"
+        "description": "[A standalone library of command utilities.]"
     }
 }

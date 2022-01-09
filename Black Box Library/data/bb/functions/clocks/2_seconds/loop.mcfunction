@@ -7,3 +7,5 @@
 
 #Loop
 schedule function bb:clocks/2_seconds/loop 2s
+
+function #minecraft:bbl/clock/2_seconds

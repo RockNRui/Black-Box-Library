@@ -7,3 +7,5 @@
 
 #Loop
 schedule function bb:clocks/5_ticks/loop 5t
+
+function #minecraft:bbl/clock/5_ticks

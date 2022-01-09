@@ -6,7 +6,7 @@
 # Use       : Ran as the player when they rejoin after logging off.
 
 #Reset score
-scoreboard players reset @s bbl.relog 0
+scoreboard players reset @s bbl.relog
 
 #Remove tag to re-initialize
 tag @s remove bbl.initialized
