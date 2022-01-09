@@ -28,7 +28,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 # BBL Feature List:
 
-**Tag Functions:**
+### **Tag Functions:**
 
 (Tag functions ran when certain actions occur.)
 
@@ -42,7 +42,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 
 
-**Passive Player Tags:**
+### **Passive Player Tags:**
 
 (Tags applied to a player in the right contexts.)
 
@@ -50,7 +50,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 
 
-**Functions:**
+### **Functions:**
 
 (Utility and tool functions for various tasks.)
 
@@ -67,7 +67,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 
 
-**Entity/Block Tags:**
+### **Entity/Block Tags:**
 
 (Groups of Mobs & Blocks for detection.)
 
@@ -79,7 +79,7 @@ Blocks: `can_raycast, containers, glass, no_crit`
 
 
 
-**Loot Tables:**
+### **Loot Tables:**
 
 (Some overwritten vanilla loot tables for various tasks.)
 
@@ -87,7 +87,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 
 
-**Predicates:**
+### **Predicates:**
 
 (Generic predicates.)
 
@@ -99,7 +99,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 
 
-**Constants**
+### **Constants**
 
 (For scoreboard operations.)
 
