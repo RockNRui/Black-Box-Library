@@ -38,9 +38,13 @@ Tag Functions:
 
 `#minecraft:bbl/y_change/down_1, #minecraft:bbl/y_change/up_1` - Ran as/at a player when they lose or gain a y level.
 
+
+
 Passive Player Tags:
 (Tags applied to a player in the right contexts.)
 `can_crit` - Player has while they can crit, accounts for things like standing next to honey.
+
+
 
 Functions:
 (Utility and tool functions for various tasks.)
@@ -55,6 +59,8 @@ Functions:
 
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
+
+
 Entity/Block Tags:
 (Groups of Mobs & Blocks for detection.)
 (All prefixed by #bb:)
@@ -63,9 +69,13 @@ Mobs: `arrow, arthropod, explosive, fiery, friendly, hostile, humanoid, monstrou
 
 Blocks: `can_raycast, containers, glass, no_crit`
 
+
+
 Loot Tables:
 (Some overwritten vanilla loot tables for various tasks.)
 Black, light gray, and purple shulker box loot tables have been overwritten to where you can break one with air{drop_contents:1b} to drop its contents, for use in the "shulker box trick."
+
+
 
 Predicates:
 (Generic predicates.)
@@ -74,6 +84,8 @@ Predicates:
 `is_sneaking` - True while the player is crouching
 
 `is_sprinting` - True while the player is sprinting
+
+
 
 Constants
 (For scoreboard operations.)
