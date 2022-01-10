@@ -34,13 +34,13 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 (Tag functions ran when certain actions occur.)
 
-`#minecraft:bbl/clock/1_tick, #minecraft:bbl/clock/5_ticks, #minecraft:bbl/clock/1_second, #minecraft:bbl/clock/2_seconds, #minecraft:bbl/clock/5_seconds clocks.` - Ran globally at X interval.
+`#minecraft:bbl/clock/1_tick, #minecraft:bbl/clock/5_ticks, #minecraft:bbl/clock/1_second, #minecraft:bbl/clock/2_seconds, #minecraft:bbl/clock/5_seconds clocks.` - Run globally at X interval.
 
-`#minecraft:bbl/inventory_changed, #minecraft:bbl/slot_changed, #minecraft:bbl/inventory_or_slot_changed` - Ran as/at a player when their inventory changes, hotbar selected slot changes, or when either happens. 
+`#minecraft:bbl/inventory_changed, #minecraft:bbl/slot_changed, #minecraft:bbl/inventory_or_slot_changed` - Run as/at a player when their inventory changes, hotbar selected slot changes, or when either happens. 
 
-`#minecraft:bbl/y_change/falling, #minecraft:bbl/y_change/ascending` - Ran as/at a player every tick as they fall or ascend.
+`#minecraft:bbl/y_change/falling, #minecraft:bbl/y_change/ascending` - Run as/at a player every tick as they fall or ascend.
 
-`#minecraft:bbl/y_change/down_1, #minecraft:bbl/y_change/up_1` - Ran as/at a player when they lose or gain a y level.
+`#minecraft:bbl/y_change/down_1, #minecraft:bbl/y_change/up_1` - Run as/at a player when they lose or gain a y level.
 
 
 
@@ -94,7 +94,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 (Generic predicates.)
 
-(All prefixed by bb:)
+(All prefixed by `bb:`)
 
 `is_sneaking` - True while the player is crouching
 
