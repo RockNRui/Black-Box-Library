@@ -34,7 +34,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 (Tag functions ran when certain actions occur.)
 
-`#minecraft:bbl/clock/X_Y/global, #minecraft:bbl/clock/X_Y/as_player` - Clock functions ran every X Ys. Supported values are: `1_tick, 5_ticks, 1_second, 2_seconds, 5_seconds, 10_seconds`. Global variant is ran as the server every clock cycle, whereas as_player is ran as every indiviudal player per clock cycle.
+`#minecraft:bbl/clock/X_Y/global, #minecraft:bbl/clock/X_Y/as_player` - Clock functions ran every X Ys. Supported values are: `1_tick, 5_ticks, 1_second, 2_seconds, 5_seconds, 10_seconds`. Global variant is ran as the server every clock cycle, whereas as_player is ran as/at every online player per clock cycle.
 
 `#minecraft:bbl/inventory_changed, #minecraft:bbl/slot_changed, #minecraft:bbl/inventory_or_slot_changed` - Run as/at a player when their inventory changes, hotbar selected slot changes, or when either happens. 
 
@@ -42,7 +42,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 `#minecraft:bbl/y_change/down_1, #minecraft:bbl/y_change/up_1` - Run as/at a player when they lose or gain a y level.
 
-`#minecraft:bbl/gamemode_changed/X` Where X is the gamemode the player changed to. The gamemode they swiitched from is also saved in the scoreboard `bbl.gamemode_change.old_gamemode`
+`#minecraft:bbl/gamemode_changed/X` Where X can be `survival, creative, adventure, or spectator`. The gamemode they swiitched from is also saved in the scoreboard `bbl.gamemode_change.old_gamemode`
 
 ### **Passive Player Tags:**
 
@@ -65,6 +65,8 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 `bb:lib/minuslevels/main` - Removes X levels WORTH of xp from the player. This should be ran as the desired player, with the desired levels set by `/scoreboard players set $minuslevel bbl.xp X` (Replace X) in the same function, a line prior.
 
 `bb:lib/rng` - Returns a random number between two values, set by `scoreboard players set $rng_min bbl.rng 1` for the min value and `scoreboard players set $rng_max bbl.rng 3` for the max value.
+
+`bb:lib/drop/checked/X` - Drops a slot from the players inventory. X is the ID of the slot you wish to drop, also supports `mainhand`.
 
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
