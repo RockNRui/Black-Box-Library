@@ -34,7 +34,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 (Tag functions ran when certain actions occur.)
 
-`#minecraft:bbl/clock/1_tick, #minecraft:bbl/clock/5_ticks, #minecraft:bbl/clock/1_second, #minecraft:bbl/clock/2_seconds, #minecraft:bbl/clock/5_seconds clocks.` - Run globally at X interval.
+`#minecraft:bbl/clock/X_Y/global, #minecraft:bbl/clock/X_Y/as_player` - Clock functions ran every X Ys. Supported values are: `1_tick, 5_ticks, 1_second, 2_seconds, 5_seconds, 10_seconds`. Global variant is ran as the server every clock cycle, whereas as_player is ran as every indiviudal player per clock cycle.
 
 `#minecraft:bbl/inventory_changed, #minecraft:bbl/slot_changed, #minecraft:bbl/inventory_or_slot_changed` - Run as/at a player when their inventory changes, hotbar selected slot changes, or when either happens. 
 
@@ -42,7 +42,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 `#minecraft:bbl/y_change/down_1, #minecraft:bbl/y_change/up_1` - Run as/at a player when they lose or gain a y level.
 
-
+`#minecraft:bbl/gamemode_changed/X` Where X is the gamemode the player changed to. The gamemode they swiitched from is also saved in the scoreboard `bbl.gamemode_change.old_gamemode`
 
 ### **Passive Player Tags:**
 
@@ -76,7 +76,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 (All prefixed by #bb:)
 
-Mobs: `arrow, arthropod, explosive, fiery, friendly, hostile, humanoid, monstrous, npc, projectile, undead`
+Mobs: `arrow, arthropod, explosive, fiery, friendly, hostile, humanoid, monstrous, npc, projectile, undead, nether, end`
 
 Blocks: `can_raycast, containers, glass, no_crit`
 
@@ -109,3 +109,10 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 (All of these scores are fake players in the bbl.constant scoreboard, with their respective values.)
 
 `$-1, $-1, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $15, $20, $25, $30, $33, $35, $50, $67, $68, $70, $75, $80, $90, $100,  $115, $200, $300, $600, $1000, $1200`
+
+
+### **Miscellaneous**
+
+(Uncategorized.)
+
+Every player is assigned a unique ID number in the scoreboard `bbl.id`. You can run `/function bb:lib/player_id/query` to learn yours and the next one to be assigned.
