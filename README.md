@@ -1,16 +1,20 @@
 # Black Box Library
 A collection of Minecraft utility functions and resources to assist in map-making as well as power mechanic based datapacks.
-Currently 1.18+
+Currently 1.19.4+
 
 Credits:
 
 RockNRed: Compilation and all otherwise uncredited resources.
 
-PearUhDox: Entity and block tags, crit checker, and further ideas.
+PearUhDox: Entity and block tags, HPM systems, and further ideas.
 
 14er: RNG function.
 
 NickNackGus: Relco and minusxp utilities.
+
+gibbs: True player damage system.
+
+Asdru: Crit checker predicate.
 
 `/function bb:sys/credits`
 
@@ -48,9 +52,7 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 (Tags applied to a player in the right contexts.)
 
-`can_crit` - Player has while they can crit, accounts for things like standing next to honey.
-
-
+N/A
 
 ### **Functions:**
 
@@ -67,6 +69,16 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 `bb:lib/rng` - Returns a random number between two values, set by `scoreboard players set $rng_min bbl.rng 1` for the min value and `scoreboard players set $rng_max bbl.rng 3` for the max value.
 
 `bb:lib/drop/checked/X` - Drops a slot from the players inventory. X is the ID of the slot you wish to drop, also supports `mainhand`.
+
+`bb:lib/chat_spam` - Run to clear chat with blank lines.
+
+`bb:lib/query_light_level` - Return the light at itself in `$light_level bbl.storage`.
+
+`bb:lib/hide_feedback` - Run in chat menus when a player clicks a button to temporarily disable the sendCommandFeedback gamerule to prevent spamming chat with feedback. Doesn't turn the gamerule on if it is off.
+
+`bb:lib/vanilla_item_clear/example` - A system that can be used to clear vanilla (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system.
+
+`bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal, bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
 
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
@@ -102,6 +114,22 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 `is_sprinting` - True while the player is sprinting
 
+`can_crit` - True while the player can critcally attack.
+
+`has_health_boost` - True while the player has the health boost effect.
+
+`has_absorption` - True while the player has the absorption effect.
+
+### **Item Modifiers:**
+
+(Tools for basic actions using item modifiers.)
+
+(All prefixed by bb:)
+
+`repair` - Removes the damage of an item.
+
+`deduct` - Removes 1 item from a stack.
+
 
 
 ### **Constants**
@@ -111,6 +139,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 (All of these scores are fake players in the bbl.constant scoreboard, with their respective values.)
 
 `$-1, $-1, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $15, $20, $25, $30, $33, $35, $50, $67, $68, $70, $75, $80, $90, $100,  $115, $200, $300, $600, $1000, $1200`
+
 
 
 ### **Miscellaneous**
