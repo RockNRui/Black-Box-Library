@@ -76,6 +76,8 @@ N/A
 
 `bb:lib/hide_feedback` - Run in chat menus when a player clicks a button to temporarily disable the sendCommandFeedback gamerule to prevent spamming chat with feedback. Doesn't turn the gamerule on if it is off.
 
+`bb:lib/set_display_light_from_block` - Sets the light level of a block, text, or item display to the light level of the block it's in.
+
 `bb:lib/vanilla_item_clear/example` - A system that can be used to clear vanilla (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system.
 
 `bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal, bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
