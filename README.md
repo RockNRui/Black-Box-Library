@@ -80,6 +80,8 @@ N/A
 
 `bb:lib/vanilla_item_clear/example` - A system that can be used to clear vanilla (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system.
 
+`bb:lib/no_iframes` - Cancels i-frames on an entity. Use after applying a different source of damage.
+
 `bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal, bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
 
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
@@ -147,5 +149,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 ### **Miscellaneous**
 
 (Uncategorized.)
+
+`no_iframes` Will remove iframes from an entity.
 
 Every player is assigned a unique ID number in the scoreboard `bbl.id`. You can run `/function bb:lib/player_id/query` to learn yours and the next one to be assigned.
