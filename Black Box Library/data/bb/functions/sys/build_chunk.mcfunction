@@ -10,3 +10,6 @@ fill 4206849 1 4206878 4206862 10 4206865 air
 
 #Magic block
 setblock 4206849 1 4206865 diamond_block
+
+#INV Box
+setblock 4206862 1 4206866 minecraft:purple_shulker_box destroy

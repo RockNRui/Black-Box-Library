@@ -12,6 +12,8 @@ PearUhDox: Entity and block tags, HPM systems, and further ideas.
 
 NickNackGus: Relco and minusxp utilities.
 
+McTsts: Inventory saving and loading utility. (For more info, see: https://github.com/McTsts/inv-manipulation)
+
 gibbs: True player damage system.
 
 Asdru: Crit checker predicate.
@@ -94,9 +96,10 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 `bb:lib/danger_check/query` - Queries if the player is in danger (with the asociated `bbl.in_danger` tags above) and gives the player a generic error message if they are found to be in danger.
 
+
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
-
+Functions `inv:save` & `inv:load`. (For more info, see: https://github.com/McTsts/inv-manipulation)
 
 ### **Entity/Block/Item Tags:**
 
