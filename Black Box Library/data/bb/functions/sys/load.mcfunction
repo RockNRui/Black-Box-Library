@@ -1,4 +1,7 @@
 
+#Reloaded
+tellraw RockNRed "Reloaded!"
+
 #Install
 function bb:sys/install
 

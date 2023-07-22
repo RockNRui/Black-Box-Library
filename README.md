@@ -52,7 +52,13 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 (Tags applied to a player in the right contexts.)
 
-N/A
+`bbl.in_danger` - Applied when the player is in any danger.
+`bbl.in_danger.in_void` - Applied when the player is below y=-64.
+`bbl.in_danger.in_damage_block` - Applied when the player is in a damaging block like lava, sweet berry bushes, fire, campfires, etc.
+`bbl.in_danger.falling` - Applied when the player is falling downwards (Note: Upwards motion is ignored.)
+`bbl.in_danger.drowning` - Applied when the player has less then max breath.
+`bbl.in_danger.taking_dot` - Applied when the player is burning, breezing, poisoned, or withered.
+`bbl.in_danger.targeted_by_mob` - Applied when a hostile mob is targeting the player.
 
 ### **Functions:**
 
@@ -78,17 +84,21 @@ N/A
 
 `bb:lib/set_display_light_from_block` - Sets the light level of a block, text, or item display to the light level of the block it's in.
 
-`bb:lib/vanilla_item_clear/example` - A system that can be used to clear vanilla (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system.
+`bb:lib/vanilla_item_clear/example` - A system that can be used to clear "vanilla" (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system.
+
+`bb:lib/vanilla_item_replace/example` - A system that can be used to replace "vanilla" (lacking `tag:{}` nbt) versions of items with a specified item. See this function for an example of how to call the system. (Note: This system has much less features, as its sole intentional use is to replace knowledge books when custom crafting.)
 
 `bb:lib/no_iframes` - Cancels i-frames on an entity. Use after applying a different source of damage.
 
 `bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal, bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
 
+`bb:lib/danger_check/query` - Queries if the player is in danger (with the asociated `bbl.in_danger` tags above) and gives the player a generic error message if they are found to be in danger.
+
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
 
 
-### **Entity/Block Tags:**
+### **Entity/Block/Item Tags:**
 
 (Groups of Mobs & Blocks for detection.)
 
@@ -98,7 +108,7 @@ Mobs: `arrow, arthropod, explosive, fiery, friendly, hostile, humanoid, monstrou
 
 Blocks: `can_raycast, containers, glass, no_crit`
 
-
+Items: `dyes`
 
 ### **Loot Tables:**
 
@@ -150,6 +160,6 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 (Uncategorized.)
 
-`no_iframes` Will remove iframes from an entity.
+`/function bb:lib/no_iframes` Will remove iframes from an entity.
 
 Every player is assigned a unique ID number in the scoreboard `bbl.id`. You can run `/function bb:lib/player_id/query` to learn yours and the next one to be assigned.
