@@ -22,7 +22,7 @@ Asdru: Crit checker predicate.
 
 # Purpose
 
-This datapack is designed to be a closed system which provides common utilities for mapmakers to avoid a bunch of simple work like clocks and tag functions. Also provided are tools to both make development easier as well as save time writing them yourself.
+This datapack is designed to be a closed, TPS-optimized system which provides common utilities for mapmakers to avoid a bunch of simple work. This adds things like clocks, tag functions, and other utilities and tools to both make development easier as well as to save time having to write them yourself for every project.
 
 # Installation & Note
 
@@ -31,7 +31,7 @@ Drag & drop the datapack into your world's datapacks folder and `/reload` or `/d
 To uninstall the datapack, run `/function bb:sys/uninstall` and delete the datapack from your world's datapacks folder.
 Then `/reload` and the uninstallation is complete. Make sure you do not run this command before the datapack is gone, else the system will simply re-install itself!
 
-Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 90 0`) to store the shulker box used for the "shulker box trick." Be careful not to unload this.
+Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 90 0`) to store the shulker box used for the "shulker box trick," as well as other systems that require exact coordinates. Be careful not to unload this. (The datapack will force load it on `/reload`)
 
 
 # BBL Feature List:
@@ -50,6 +50,34 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 `#minecraft:bbl/gamemode_changed/X` Where X can be `survival, creative, adventure, or spectator`. The gamemode they swiitched from is also saved in the scoreboard `bbl.gamemode_change.old_gamemode`
 
+`#minecraft:bbl/relog` - Run as/at a player when they rejoin a world in both single and multiplayer.
+
+`#minecraft:bbl/init/repeated, #minecraft:bbl/init/single` - Run as/at a player when they first join, relog or the world reloads, OR run only for a player's first entry into a world, respectively.
+
+`#minecraft:bbl/move/any` - Run as/at a player when they do any of the following movement: climbing, sneaking, moving a horse, sprinting, swimming, walking and walking underwater
+
+`#minecraft:bbl/move/mouse` - Run at/at a player when they move their mouse. Note: Requires the player to have at least 1 in the score `bbl.move.mouse_angle.listen.`, for optimization reasons. When using, please ADD or REMOVE, never "set" as this could interfere with other things using this system.
+
+`#minecraft:bbl/move/generic` - Run as/at a player when they do any movement or mouse movement, but only once and after it has been "primed" on them with the function `bb:lib/move_detector/generic_listen`
+
+Player Actions:
+
+`#minecraft:bbl/action/dropped_kb` - Run as/at a player when they drop a knowledge book.
+
+`#minecraft:bbl/action/placed_barrel` Run as/at a player when they place a barrel.
+
+`#minecraft:bbl/action/placed_spruce_stair` Run as/at a player when they place a spruce stair.
+
+Utilities:
+
+`#minecraft:bbl/hard_reset_map` - Ran globally, meant to be used in collab projects for an easy centralized reset function. This should be safe to spam!
+
+`#minecraft:bbl/soft_reset_50b` - Reset things in a small area, it is up to the mapper to apply distance limitations! This is meant to be used in collab projects for an easy local reset function. This should be safe to spam!
+
+`#minecraft:bbl/prime_map_for_release` - Ran globally to "prime" the map for release. This should be safe to spam!
+
+
+
 ### **Passive Player Tags:**
 
 (Tags applied to a player in the right contexts.)
@@ -59,8 +87,10 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 `bbl.in_danger.in_damage_block` - Applied when the player is in a damaging block like lava, sweet berry bushes, fire, campfires, etc.
 `bbl.in_danger.falling` - Applied when the player is falling downwards (Note: Upwards motion is ignored.)
 `bbl.in_danger.drowning` - Applied when the player has less then max breath.
-`bbl.in_danger.taking_dot` - Applied when the player is burning, breezing, poisoned, or withered.
+`bbl.in_danger.taking_dot` - Applied when the player is burning, freezing, poisoned, or withered.
 `bbl.in_danger.targeted_by_mob` - Applied when a hostile mob is targeting the player.
+
+
 
 ### **Functions:**
 
@@ -96,10 +126,21 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 `bb:lib/danger_check/query` - Queries if the player is in danger (with the asociated `bbl.in_danger` tags above) and gives the player a generic error message if they are found to be in danger.
 
+`bb:lib/move_detector/generic_listen` - After 12 ticks starts listening for any player movement or mouse movement, and when found triggers the tag function `#minecraft:bbl/move/generic` once.
+
+
+`bb:lib/hard_reset_map` - Runs the corresponding tag function. This should be safe to spam!
+
+`bb:lib/soft_reset_50b` - Runs the corresponding tag function. Meant to only reset things in a small 50 block area, it is up to the mapper to apply such distance limitations. This should be safe to spam!
+
+`bb:lib/prime_map_for_release` - Runs the corresponding tag function. This should be safe to spam!
+
 
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
-Functions `inv:save` & `inv:load`. (For more info, see: https://github.com/McTsts/inv-manipulation)
+`inv:save` & `inv:load` - A system to save and load the players inventory to and from a storage space. (For more info, see: https://github.com/McTsts/inv-manipulation)
+
+
 
 ### **Entity/Block/Item Tags:**
 
@@ -137,6 +178,8 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 `has_absorption` - True while the player has the absorption effect.
 
+
+
 ### **Item Modifiers:**
 
 (Tools for basic actions using item modifiers.)
@@ -166,3 +209,106 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 `/function bb:lib/no_iframes` Will remove iframes from an entity.
 
 Every player is assigned a unique ID number in the scoreboard `bbl.id`. You can run `/function bb:lib/player_id/query` to learn yours and the next one to be assigned.
+
+
+
+### **Other Doccumentation**
+
+(Information for advanced use.)
+
+**Lexica Model**
+
+If the Datapack Cartographer (https://github.com/pearuhdox/Cartographer)
+
+and the datapack(s): (any of)
+
+- RIM (N/A, w.i.p.)
+- Inasa (N/A, w.i.p.)
+
+are installed, BBL will inject the the Lexica Cartographia with `CustomModelData:2` and remove enchants. This is to enable the Lexica model with the resourcepack for my more feature-focussed datapacks.
+
+Set the score in the scoreboard `$bbl.config.lexica_inject bbl.storage` to 0 to disable and use a vanilla knowledge book texture (`CustomModelData:1`), else defaults to enabled score of 1.
+
+**Resourcepack**
+
+THIS RESOURCEPACK IS NOT PART OF BBL'S FEATURES, AND IS NOT REQUIRED TO USE IT. You do not need to worry about having this unless you are using one of my other datapacks which states it is required.
+
+This resourcepack is my resource and assets equivlent of BBL- where BBL is my place to compile all my function and other datapack facets, this resourcepack is a combined pool of all my resources and assets for my various datapacks.
+
+I do my best not to infringe on anything vanilla beyond objective improvements, but a few things must be unavoidably touched.
+
+*Below is a list of all the resourcepack modifies about the vanilla assets:*
+
+Models: - Knowledge books are rextured to a question mark and renamed to "Unknown Item (Craft to reveal, result of Minecraft limitation.)". This, as you can probably tell, is to make custom crafting a bit smoother to the player. 
+
+Use CustomModelData:1 on a knowledge book to use the vanilla texture.
+
+Atlases: - Atlas for `blocks` compiled/used for custom textures; this can be easily overwritten with a script that auto-generates this atlas (Like I use.) to include both my resources and whatever need be added/changed. Maybe I'll look into a custom atlas someday, but I don't really care for the moment.
+
+Models: - Custom models with model data overrides for the following items: `barrel`, `carrot_on_a_stick`, `clock`, `item_frame` and `knowledge_book`
+
+Lang: - Enchantment levels 1-30 are properly given roman numerals.
+
+*Below is a list of all the resourcepack adds for my various datapacks:*
+
+- Assets for INASA (N/A, w.i.p.)
+
+ - Dev tools
+ - Placeholder blocks
+ - Monument objectives
+ 
+- Assets for RIM (N/A, w.i.p.)
+
+- Assets for Cartographer (https://github.com/pearuhdox/Cartographer)
+
+ - Lexica
+
+### **Changelogs**
+
+```
+V1.5 Changelog
+
++ Added a resourcepack- kind of. This isn't actually a part of BBL, and is NOT required to use for BBL. This is rather a combined pool of resources for all my datapacks that will make use of it, like the upcomming R.I.M.
+I have done my best to have this edit as little as possible with vanilla, but knowledge books had to be replaced (Hence the Lexica model) to facilitate some explanation in custom crafting. (Mojang still refuses to give us NBT in custom recipes!)
+For more doccumentation on the resourcepack and what it does, see the "Other Doccumentation" section near the bottom of the github page. 
+
++ Added a system to detect player movement and trigger corresponding tag functions, as well as optionally "listen" for mouse movement. (Must be toggled on and off as needed as this could be tps intensive if left on.)
+
++ Added 3 new functions/tag commands for centralized map resetting & priming.
+
++ Added tag funcstions for relogging and player intitialization (in both repeated and singular forms.)
+
++ Added Ts to the in-game credits command (whoops.)
+
++ Added a set of function tags that happen upon certain "actions." These are mostly simple scoreboard outputs.
+
++ Added some integration with Cartographer for a Lexica Cartographia model.
+
+<-> I LOVE FORMATTING FIXES I LOVE FORMATTING FIXES.
+
+- Cleaned up some redundant code.
+
+Further documentation on github.
+```
+
+```
+V1.4 Changelog
+
++ 1.20.1 update
+
++ Ts' Inventory saving/loading utility.
+
++ New system for replacing vanilla items with another. (For use in custom crafting knowledge book shenanigans.)
+
++ New item/block tags.
+
++ New passive tags which indicate if the player is in various states of "danger" (Targeted by mobs, in the void, in a damage block, falling, drowning, taking DoT, or any.)
+
++ A function alongside the aforementioned tags that gives the player a generic "You cannot do this because of X" error message in the actionbar if they are under whatever form of "danger."
+
+<-> README.md formatting fixes.
+
+<-> Important bug fix to the vanilla clear system to prevent it eating items in slot 11 and 12 when it was meant to take from just 11, and 12 would never work. Oh, how the little typos that can cause big problems...
+
+Further documentation on github.
+```

@@ -66,8 +66,54 @@ scoreboard objectives add bbl.hth.post_hp dummy
 scoreboard objectives add bbl.hth.pre_hp dummy 
 scoreboard objectives add bbl.hth.amount dummy
 
-#Next ID init
-execute unless score $next_id bbl.storage matches -99999..99999 run scoreboard players set $next_id bbl.storage 1
+#Actions
+#\Drop kb
+scoreboard objectives add bbl.action.drop_kb minecraft.dropped:minecraft.knowledge_book
+#\Place spruce stairs
+scoreboard objectives add bbl.action.place_spruce_stair minecraft.used:minecraft.spruce_stairs
+#\Place barrel
+scoreboard objectives add bbl.action.place_barrel minecraft.used:minecraft.barrel
+
+
+#\Move detector
+#Mute timer
+scoreboard objectives add bbl.move.mute dummy
+#\Walk
+scoreboard objectives add bbl.move.walk minecraft.custom:minecraft.walk_one_cm
+#\Sprint
+scoreboard objectives add bbl.move.sprint minecraft.custom:minecraft.sprint_one_cm
+#\Crouch
+scoreboard objectives add bbl.move.crouch minecraft.custom:minecraft.crouch_one_cm
+#\Climb
+scoreboard objectives add bbl.move.climb minecraft.custom:minecraft.climb_one_cm
+#\Horse
+scoreboard objectives add bbl.move.horse minecraft.custom:minecraft.horse_one_cm
+#\Swim
+scoreboard objectives add bbl.move.swim minecraft.custom:minecraft.swim_one_cm
+#\Walk underwater
+scoreboard objectives add bbl.move.walk_underwater minecraft.custom:minecraft.walk_under_water_one_cm
+
+##\Mouse
+##\Pitch
+###\Current
+scoreboard objectives add bbl.move.mouse_angle.pitch.current dummy
+###\Previous
+scoreboard objectives add bbl.move.mouse_angle.pitch.past dummy
+##\Yaw
+###\Current
+scoreboard objectives add bbl.move.mouse_angle.yaw.current dummy
+###\Previous
+scoreboard objectives add bbl.move.mouse_angle.yaw.past dummy
+#\Listen
+scoreboard objectives add bbl.move.mouse_angle.listen dummy
+
+#Init
+#\Next ID
+execute unless score $next_id bbl.storage matches -2147483647..-2147483647 run scoreboard players set $next_id bbl.storage 1
+#\Config
+##\Lexica inject
+execute unless score $bbl.config.lexica_inject bbl.storage matches -2147483647..2147483647 run scoreboard players set $bbl.config.lexica_inject bbl.storage 1
+
 
 #Set constants
 scoreboard players set $-1 bbl.constant -1
@@ -190,3 +236,5 @@ team modify yellow collisionRule never
 execute unless block 4206849 1 4206865 diamond_block run function bb:sys/build_chunk
 #\Working shulker
 execute unless block 4206862 1 4206865 black_shulker_box run setblock 4206862 1 4206865 black_shulker_box
+#\INV Box
+setblock 4206862 1 4206866 minecraft:purple_shulker_box destroy

@@ -8,6 +8,9 @@ function bb:sys/install
 #Set datapack active
 function bb:integration/active/clear
 
+#Reset repeated init
+tag @a remove bbl.initialized
+
 #Reset clocks
 scoreboard players set $1_tick bbl.clock 0
 scoreboard players set $5_ticks bbl.clock 0
@@ -52,3 +55,6 @@ scoreboard players operation #int_3 bbl.rng *= #thirteen bbl.rng
 
 #\Burn an RNG state
 function bb:lib/rng
+
+#Schedule lexica CMD check, first checking if carto is loaded
+schedule function bb:lib/lexica_cmd/check_carto 2t
