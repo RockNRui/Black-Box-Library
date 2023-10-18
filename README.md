@@ -297,8 +297,6 @@ For more doccumentation on the resourcepack and what it does, see the "Other Doc
 
 + Added some integration with Cartographer for a Lexica Cartographia model.
 
-<-> BBl's RNG function now runs off of /random. The reason BBL's RNG frontend is sticking around is that you can easily set the min and max values as seperate scoreboard variables, instead of needing to use a macro every time with /random.
-
 <-> Updated credits and its formatting.
 
 <-> I LOVE FORMATTING FIXES I LOVE FORMATTING FIXES.
