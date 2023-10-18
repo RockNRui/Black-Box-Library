@@ -238,7 +238,7 @@ Set the score in the scoreboard `$bbl.config.lexica_inject bbl.storage` to 0 to 
 
 **Resourcepack**
 
-THIS RESOURCEPACK IS NOT PART OF BBL'S FEATURES, AND IS NOT REQUIRED TO USE IT. You do not need to worry about having this unless you are using one of my other datapacks which states it is required.
+THIS RESOURCEPACK IS NOT PART OF BBL'S FEATURES, AND IS NOT REQUIRED TO USE IT. You do not need to worry about having this unless you are using one of my other datapacks which states parts of it are required.
 
 This resourcepack is my resource and assets equivlent of BBL- where BBL is my place to compile all my function and other datapack facets, this resourcepack is a combined pool of all my resources and assets for my various datapacks.
 
