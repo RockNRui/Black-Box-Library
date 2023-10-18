@@ -1,3 +1,4 @@
+data remove storage inv:main inv
 data modify storage inv:main inv set value {}
 data modify storage inv:main inv.inventory set value []
 data modify storage inv:main inv.hotbar set value []

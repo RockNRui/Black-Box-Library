@@ -1,0 +1,10 @@
+{
+	"parent": "inasa:parents/placeholder",
+	"textures": {
+		"side": "inasa:placeholder/redstone_dust",
+		"top": "inasa:placeholder/redstone_dust",
+		"bottom": "inasa:placeholder/redstone_dust",
+		"outer": "inasa:placeholder/outline",
+		"particle": "inasa:placeholder/outline"
+	}
+}

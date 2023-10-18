@@ -1,0 +1,6 @@
+{
+	"parent": "rim:bags/parent",
+	"textures": {
+		"texture": "rim:bags/basic/neutral/open"
+	}
+}

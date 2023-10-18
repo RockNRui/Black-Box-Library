@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "rim:bag/dye_station/side",
+        "down": "rim:bag/dye_station/bottom",
+        "up": "rim:bag/dye_station/top",
+        "north": "rim:bag/dye_station/side",
+        "east": "rim:bag/dye_station/side",
+        "south": "rim:bag/dye_station/side",
+        "west": "rim:bag/dye_station/side"
+    }
+}

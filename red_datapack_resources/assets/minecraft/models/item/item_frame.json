@@ -1,0 +1,14 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "item/item_frame"
+	},
+	
+	"overrides": [	
+		{"predicate": {"custom_model_data":9801}, "model": "inasa:placeholder/redstone_dust"},
+		{"predicate": {"custom_model_data":9802}, "model": "inasa:placeholder/block/tnt"},
+		{"predicate": {"custom_model_data":9803}, "model": "inasa:placeholder/block/stone"}
+		
+		
+	]
+}

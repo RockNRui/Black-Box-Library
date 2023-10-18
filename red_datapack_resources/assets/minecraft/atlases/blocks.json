@@ -1,0 +1,72 @@
+{
+    "sources": [
+        {
+            "type": "single",
+            "resource": "carto:items/lexica"
+        },
+        {
+            "type": "single",
+            "resource": "carto:items/lexica_text"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:coas/ender_pearl"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:coas/golden_carrot"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:coas/interaction"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:coas/upsidown_carrot"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:placeholder/redstone_dust"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:placeholder/outline"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:placeholder/block/stone"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:placeholder/block/tnt/side"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:placeholder/block/tnt/top"
+        },
+        {
+            "type": "single",
+            "resource": "inasa:placeholder/block/tnt/bottom"
+        },
+        {
+            "type": "single",
+            "resource": "rim:bags/basic/neutral/closed"
+        },
+        {
+            "type": "single",
+            "resource": "rim:bags/basic/neutral/open"
+        },
+        {
+            "type": "single",
+            "resource": "rim:bag/dye_station/side"
+        },
+        {
+            "type": "single",
+            "resource": "rim:bag/dye_station/bottom"
+        },
+        {
+            "type": "single",
+            "resource": "rim:bag/dye_station/top"
+        }
+    ]
+}

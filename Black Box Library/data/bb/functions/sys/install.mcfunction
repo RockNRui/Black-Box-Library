@@ -2,6 +2,10 @@
 #Forceload chunk.
 forceload add 4206857 4206872
 
+#Gamerules
+#\Command limit
+gamerule commandModificationBlockLimit 9999999
+
 #Add scoreboards
 #\Score Storage Location
 scoreboard objectives add bbl.storage dummy

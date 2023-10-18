@@ -1,0 +1,10 @@
+{
+	"parent": "inasa:parents/placeholder",
+	"textures": {
+		"side": "inasa:placeholder/block/tnt/side",
+		"top": "inasa:placeholder/block/tnt/top",
+		"bottom": "inasa:placeholder/block/tnt/bottom",
+		"outer": "inasa:placeholder/outline",
+		"particle": "inasa:placeholder/outline"
+	}
+}
