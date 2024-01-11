@@ -26,17 +26,46 @@ function bb:lib/tag_functions/y_change
 #Actionbar spammer
 execute if score @s bbl.actionbar_spam_mute matches 1.. run scoreboard players remove @s bbl.actionbar_spam_mute 1
 
-#Item effects
-#\Interaction Blocker
-#execute if score @s bbl.ie.block matches 1.. run function bb:lib/item_effects/block_interaction/loop
-
 #Actions
 #\Dropped KB
-execute if score @s bbl.action.drop_kb matches 1.. run function #minecraft:bbl/action/dropped_kb
+execute if score @s bbl.action.drop.kb matches 1.. run function bb:lib/action/drop/kb
+#Drop anything
+execute if score @s bbl.action.drop.any matches 1.. run function bb:lib/action/drop/any
 #\Placed stair
-execute if score @s bbl.action.place_spruce_stair matches 1.. run function #minecraft:bbl/action/placed_spruce_stair
+execute if score @s bbl.action.place.spruce_stair matches 1.. run function bb:lib/action/place/spruce_stair
 #\Place barrel
-execute if score @s bbl.action.place_barrel matches 1.. run function #minecraft:bbl/action/placed_barrel
+execute if score @s bbl.action.place.barrel matches 1.. run function bb:lib/action/place/barrel
+#\\\Mine
+#\\Lapis
+#\Stone
+execute if score @s bbl.action.mine.lapis.stone matches 1.. run function bb:lib/action/mine/lapis
+#\Deepslate
+execute if score @s bbl.action.mine.lapis.deepslate matches 1.. run function bb:lib/action/mine/lapis
+#\\Spawner
+execute if score @s bbl.action.mine.spawner matches 1.. run function bb:lib/action/mine/spawner
+#\Scored kill
+execute if score @s bbl.action.kill matches 1.. run function bb:lib/action/kill
+#\Used bow
+execute if score @s bbl.action.shot.bow matches 1.. run function bb:lib/action/shot/bow
+#\Used crossbow
+execute if score @s bbl.action.shot.crossbow matches 1.. run function bb:lib/action/shot/crossbow
+#\\On death
+#\On spawn
+execute if score @s bbl.action.die.on_spawn matches 1.. unless entity @s[nbt={Health:0f}] run function bb:lib/action/die/on_spawn
+#\On death
+execute if score @s bbl.action.die.on_death matches 1.. run function bb:lib/action/die/on_death
+#\Jump
+execute if score @s bbl.action.jump matches 1.. run function bb:lib/action/jump
+#\Take damage
+execute if score @s bbl.action.take_damage matches 1.. run function bb:lib/action/take_damage
+#\\Used
+#\Totem
+execute if score @s bbl.action.use.totem matches 1.. run function bb:lib/action/use/totem
+#\Bundle
+execute if score @s bbl.action.use.bundle matches 1.. run function bb:lib/action/use/bundle
+#\CoaS
+execute if score @s bbl.action.use.coas matches 1.. run function bb:lib/action/use/coas
+
 
 #Movement checker
 #Normal movement
@@ -51,3 +80,10 @@ execute if score @s bbl.move.walk_underwater matches 1.. run function bb:lib/mov
 execute if score @s bbl.move.mute matches 1.. run function bb:lib/move_detector/mute_loop
 #Mouse listener
 execute if score @s bbl.move.mouse_angle.listen matches 1.. if score @s bbl.move.mute matches 0 run function bb:lib/move_detector/mouse_loop
+
+execute if entity @s[tag=delta.kill.fix] run function bb:lib/delta_kill_fix
+
+
+#GUI Closer
+execute if score @s bbl.close_gui.stop_portal_sound matches 1.. run function bb:lib/close_gui/stop_sound/loop
+execute if entity @s[tag=bbl.tp_back_from_portal] run function bb:lib/close_gui/return

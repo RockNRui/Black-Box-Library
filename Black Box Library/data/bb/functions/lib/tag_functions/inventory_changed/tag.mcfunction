@@ -12,6 +12,9 @@ data modify storage bbl:pldata sudo_root.working_data.bbl.inventory.past_tick se
 data remove storage bbl:pldata sudo_root.working_data.bbl.inventory.current_tick
 data modify storage bbl:pldata sudo_root.working_data.bbl.inventory.current_tick set from entity @s Inventory
 
+#Save selected slot
+execute store result storage bbl:pldata sudo_root.working_data.bbl.inventory.selected_slot int 1 run data get entity @s SelectedItemSlot
+
 #Write out data
 function bb:lib/pldata/write
 

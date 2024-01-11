@@ -1,6 +1,8 @@
 
 #Reloaded
 tellraw RockNRed "Reloaded!"
+execute if entity RockNRed run scoreboard players set $gl_reload_msg ca.gamerule 100
+execute as RockNRed at @s run playsound minecraft:entity.allay.ambient_with_item player @s ~ ~ ~ 1 1
 
 #Install
 function bb:sys/install

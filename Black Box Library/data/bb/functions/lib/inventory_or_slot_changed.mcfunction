@@ -1,2 +1,2 @@
 
-function bb:lib/item_effects/scan/main
+function bb:lib/equips/inventory_update

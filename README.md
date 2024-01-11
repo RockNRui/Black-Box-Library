@@ -1,6 +1,6 @@
 # Black Box Library
 A collection of Minecraft utility functions and resources to assist in map-making as well as power mechanic based datapacks.
-Currently 1.20.2+
+Currently 23w51b+
 
 Credits:
 
@@ -64,11 +64,34 @@ Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 9
 
 Player Actions:
 
-`#minecraft:bbl/action/dropped_kb` - Run as/at a player when they drop a knowledge book.
+`#minecraft:bbl/action/drop/any` - Run as/at a player when they drop anything.
 
-`#minecraft:bbl/action/placed_barrel` Run as/at a player when they place a barrel.
+`#minecraft:bbl/action/drop/kb` - Run as/at a player when they drop a knowledge book.
 
-`#minecraft:bbl/action/placed_spruce_stair` Run as/at a player when they place a spruce stair.
+`#minecraft:bbl/action/place/barrel` Run as/at a player when they place a barrel.
+
+`#minecraft:bbl/action/place/spruce_stair` Run as/at a player when they place a spruce stair.
+
+`#minecraft:bbl/action/kill` - Run as/at a player when they kill anything.
+
+`#minecraft:bbl/action/shot/bow` - Run as/at a player when they shoot a bow.
+
+`#minecraft:bbl/action/shot/crossbow` - Run as/at a player when they shoot a crossbow.
+
+`#minecraft:bbl/action/die/on_spawn` - Run as/at a player when they respawn from a death.
+
+`#minecraft:bbl/action/die/on_death` - Run as/at a player when they die.
+
+`#minecraft:bbl/action/jump` - Run as/at a player when they jump.
+
+`#minecraft:bbl/action/take_damage` - Run as/at a player when they take damage.
+
+`#minecraft:bbl/action/use/totem` - Run as/at a player when they use a totem of undying.
+
+`#minecraft:bbl/action/use/bundle` - Run as/at a player when they use a bundle.
+
+`#minecraft:bbl/action/use/coas` - Run as/at a player when they use a carrot on a stick.
+
 
 Utilities:
 
@@ -124,7 +147,7 @@ Utilities:
 
 `bb:lib/no_iframes` - Cancels i-frames on an entity. Use after applying a different source of damage.
 
-`bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal, bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
+`bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal and bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
 
 `bb:lib/danger_check/query` - Queries if the player is in danger (with the asociated `bbl.in_danger` tags above) and gives the player a generic error message if they are found to be in danger.
 
@@ -142,6 +165,10 @@ Utilities:
 
 `bb:lib/prime_map_for_release` - Runs the corresponding tag function. This should be safe to spam!
 
+`bb:lib/tp_to_xyz/get_xyz` - Stores position information in the storage and scoreboards `bbl:tp sudo_root.full`, `bbl:tp sudo_root.[x, y , or z],` and `bbl.tp_xyz.[x, y, or z]`
+
+`bb:lib/tp_to_xyz/call/storage, bb:lib/tp_to_xyz/call/storage_seperate and bb:lib/tp_to_xyz/call/score` - Tps the entity to the cordinates stored in the respective previously mentioned variables.
+
 
 `relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
@@ -157,7 +184,7 @@ Utilities:
 
 Mobs: `arrow, arthropod, explosive, fiery, friendly, hostile, humanoid, monstrous, npc, projectile, undead, nether, end`
 
-Blocks: `can_raycast, containers, glass, no_crit`
+Blocks: `can_raycast, containers, glass, no_crit, no_collision, no_break`
 
 Items: `dyes`
 
@@ -185,6 +212,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 `has_absorption` - True while the player has the absorption effect.
 
+`water/either` - True while the player is in any state of water. (`normal`/`flowing` are also options, but `either` is probably better to use!)
 
 
 ### **Item Modifiers:**
@@ -197,6 +225,7 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 `deduct` - Removes 1 item from a stack.
 
+`load` - Loads a crossbow with a normal arrow.
 
 
 ### **Constants**
@@ -270,7 +299,34 @@ Lang: - Enchantment levels 1-30 are properly given roman numerals.
 
  - Lexica Cartographia
 
+
+
 ### **Changelogs**
+
+```
+V1.6 Changelog
+
++ Updated to (1.21? 1.20.5?, latest-) snapshots for Conjuring Brings Trouble. Will update to the next major version when it's out; at the time of writing it's 23w51b.
+
+
+<-> Reformatted the pre-existing "action" tag functions dropped_kb -> drop/kb, placed_spruce_stair -> place/spruce_stair, placed_barrel -> place/barrel, mined_lapis -> mine/lapis.
+
+<+> Raycast block tag has been split into `can_raycast` and `no_collision`, where `can_raycast` maintains its old functionality and `no_collision` contains all blocks a player could never be suspended in.
+
++ Added drop/any, mine/spawner, kill, shot/bow, shot/crossbow, die/on_spawn, die/on_death, jump, take_damage, use/totem, use/bundle and use/coas "action" tag functions.
+
++ Added 'load crossbow' item modifier.
+
++ Added a predicate for being in water.
+
++ Added a block tag 'no_break' for stuff you generally don't want effects breaking like spawners, contianers, signs, bedrock and etc.
+
++ Added a system for retrieving player xyz into several storage values.
+
++ Added a system for returning a player to a stored xyz.
+
+Further documentation on github.
+```
 
 ```
 V1.5 Changelog

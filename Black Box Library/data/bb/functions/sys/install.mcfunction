@@ -54,6 +54,14 @@ scoreboard objectives add bbl.gamemode_change.old_gamemode dummy
 #Actionbar muter
 scoreboard objectives add bbl.actionbar_spam_mute dummy
 
+#Tp to xyz
+scoreboard objectives add bbl.tp_xyz.x dummy
+scoreboard objectives add bbl.tp_xyz.y dummy
+scoreboard objectives add bbl.tp_xyz.z dummy
+
+#Close gui sound timer
+scoreboard objectives add bbl.close_gui.stop_portal_sound dummy
+
 #CDL Scoreboards
 #Healing queue
 scoreboard objectives add bbl.heal_queue dummy
@@ -72,11 +80,43 @@ scoreboard objectives add bbl.hth.amount dummy
 
 #Actions
 #\Drop kb
-scoreboard objectives add bbl.action.drop_kb minecraft.dropped:minecraft.knowledge_book
+scoreboard objectives add bbl.action.drop.kb minecraft.dropped:minecraft.knowledge_book
+#\Drop anything
+scoreboard objectives add bbl.action.drop.any minecraft.custom:minecraft.drop
 #\Place spruce stairs
-scoreboard objectives add bbl.action.place_spruce_stair minecraft.used:minecraft.spruce_stairs
+scoreboard objectives add bbl.action.place.spruce_stair minecraft.used:minecraft.spruce_stairs
 #\Place barrel
-scoreboard objectives add bbl.action.place_barrel minecraft.used:minecraft.barrel
+scoreboard objectives add bbl.action.place.barrel minecraft.used:minecraft.barrel
+#\Score kill
+scoreboard objectives add bbl.action.kill totalKillCount
+#\Shot bow
+scoreboard objectives add bbl.action.shot.bow minecraft.used:minecraft.bow
+#\Shot crossbow
+scoreboard objectives add bbl.action.shot.crossbow minecraft.used:minecraft.crossbow
+#\\\Mine
+#\\Lapis
+#\Stone
+scoreboard objectives add bbl.action.mine.lapis.stone minecraft.mined:minecraft.lapis_ore
+#\Deepslate
+scoreboard objectives add bbl.action.mine.lapis.deepslate minecraft.mined:minecraft.deepslate_lapis_ore
+#\\Spawner
+scoreboard objectives add bbl.action.mine.spawner minecraft.mined:minecraft.spawner
+#\\On death
+#\On player respawn
+scoreboard objectives add bbl.action.die.on_spawn minecraft.custom:minecraft.deaths
+#\On initial death
+scoreboard objectives add bbl.action.die.on_death minecraft.custom:minecraft.deaths
+#\Jump
+scoreboard objectives add bbl.action.jump minecraft.custom:minecraft.jump
+#\Take damage
+scoreboard objectives add bbl.action.take_damage minecraft.custom:minecraft.damage_taken
+#\\Use
+#\Totem
+scoreboard objectives add bbl.action.use.totem minecraft.used:minecraft.totem_of_undying
+#\Bundle
+scoreboard objectives add bbl.action.use.bundle minecraft.used:minecraft.bundle
+#\CoaS
+scoreboard objectives add bbl.action.use.coas minecraft.used:minecraft.carrot_on_a_stick
 
 
 #\Move detector
@@ -117,10 +157,11 @@ execute unless score $next_id bbl.storage matches -2147483647..-2147483647 run s
 #\Config
 ##\Lexica inject
 execute unless score $bbl.config.lexica_inject bbl.storage matches -2147483647..2147483647 run scoreboard players set $bbl.config.lexica_inject bbl.storage 1
-
+execute unless score $bbl.config.no_iframes bbl.storage matches -2147483647..2147483647 run scoreboard players set $bbl.config.no_iframes bbl.storage 0
 
 #Set constants
 scoreboard players set $-1 bbl.constant -1
+scoreboard players set $0 bbl.constant 0
 scoreboard players set $1 bbl.constant 1
 scoreboard players set $2 bbl.constant 2
 scoreboard players set $3 bbl.constant 3
@@ -239,6 +280,5 @@ team modify yellow collisionRule never
 #Forceload chunk
 execute unless block 4206849 1 4206865 diamond_block run function bb:sys/build_chunk
 #\Working shulker
-execute unless block 4206862 1 4206865 black_shulker_box run setblock 4206862 1 4206865 black_shulker_box
-#\INV Box
-setblock 4206862 1 4206866 minecraft:purple_shulker_box destroy
+setblock 4206862 1 4206865 air
+setblock 4206862 1 4206865 black_shulker_box

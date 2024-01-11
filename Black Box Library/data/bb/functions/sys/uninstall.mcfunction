@@ -36,6 +36,15 @@ scoreboard objectives remove bbl.relco.ZD
 #Actionbar muter
 scoreboard objectives remove bbl.actionbar_spam_mute
 
+#Tp to xyz
+scoreboard objectives remove bbl.tp_xyz.x
+scoreboard objectives remove bbl.tp_xyz.y
+scoreboard objectives remove bbl.tp_xyz.z
+
+#Close gui sound timer
+scoreboard objectives remove bbl.close_gui.stop_portal_sound
+
+
 #CDL Scoreboards
 #Healing queue
 scoreboard objectives remove bbl.heal_queue
@@ -52,12 +61,44 @@ scoreboard objectives remove bbl.hth.post_hp
 scoreboard objectives remove bbl.hth.pre_hp
 scoreboard objectives remove bbl.hth.amount
 
-#Drop kb
-scoreboard objectives remove bbl.drop_kb
-#Place spruce stairs
-scoreboard objectives remove bbl.place_spruce_stair
-#Place barrel
-scoreboard objectives remove bbl.action.place_barrel
+#Actions
+#\Drop kb
+scoreboard objectives remove bbl.drop.kb
+#\Drop anything
+scoreboard objectives remove bbl.action.drop.any
+#\Place spruce stairs
+scoreboard objectives remove bbl.action.place.spruce_stair
+#\Place barrel
+scoreboard objectives remove bbl.action.place.barrel
+#\Score kill
+scoreboard objectives remove bbl.action.kill
+#\Shot bow
+scoreboard objectives remove bbl.action.shot.bow
+#\Shot crossbow
+scoreboard objectives remove bbl.action.shot.crossbow
+#\Mine lapis
+#\\Stone
+scoreboard objectives remove bbl.action.mine.lapis.stone
+#\\Deepslate
+scoreboard objectives remove bbl.action.mine.lapis.deepslate
+#\\Spawner
+scoreboard objectives remove bbl.action.mine.spawner
+#\\On death
+#\On player respawn
+scoreboard objectives remove bbl.action.die.on_spawn
+#\On initial death
+scoreboard objectives remove bbl.action.die.on_death
+#\Jump
+scoreboard objectives remove bbl.action.jump
+#\Take damage
+scoreboard objectives remove bbl.action.take_damage
+#\\Use
+#\Totem
+scoreboard objectives remove bbl.action.use.totem
+#\Bundle
+scoreboard objectives remove bbl.action.use.bundle
+#\CoaS
+scoreboard objectives remove bbl.action.use.coas
 
 
 #\Move detector
@@ -116,6 +157,7 @@ team remove yellow
 fill 4206848 -1 4206879 4206863 -64 4206864 air
 fill 4206848 0 4206879 4206863 127 4206864 air
 fill 4206848 128 4206879 4206863 255 4206864 air
+fill 4206848 256 4206879 4206863 319 4206864 air
 
 #Un-Forceload chunk
 forceload remove 4206857 4206872
