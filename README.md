@@ -244,6 +244,8 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 `/function bb:lib/no_iframes` Will remove iframes from an entity.
 
+`bbl:pldata sudo_root.working_data.bbl.name` - Has the player's name in string format.
+
 Every player is assigned a unique ID number in the scoreboard `bbl.id`. You can run `/function bb:lib/player_id/query` to learn yours and the next one to be assigned.
 
 

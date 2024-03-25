@@ -1,6 +1,6 @@
 [
   {
-    "function": "minecraft:set_nbt",
-    "tag": "{Damage:0}"
+    "function": "minecraft:set_damage",
+    "damage": 0
   }
 ]
