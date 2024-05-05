@@ -159,7 +159,7 @@ scoreboard objectives add bbl.move.mouse_angle.listen dummy
 
 #Init
 #\Next ID
-execute unless score $next_id bbl.storage matches -2147483647..-2147483647 run scoreboard players set $next_id bbl.storage 1
+execute unless score $next_id bbl.storage matches -2147483647..2147483647 run scoreboard players set $next_id bbl.storage 1
 #\Config
 ##\Lexica inject
 execute unless score $bbl.config.lexica_inject bbl.storage matches -2147483647..2147483647 run scoreboard players set $bbl.config.lexica_inject bbl.storage 1

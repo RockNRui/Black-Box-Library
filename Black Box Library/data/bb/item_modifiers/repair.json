@@ -1,6 +1,6 @@
 [
   {
     "function": "minecraft:set_damage",
-    "damage": 0
+    "damage": 1
   }
 ]
