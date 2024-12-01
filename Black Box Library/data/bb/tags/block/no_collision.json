@@ -2,6 +2,7 @@
   "values": [
     "minecraft:air",
     "minecraft:short_grass",
+	"minecraft:snow",
     "minecraft:fern",
     "minecraft:dead_bush",
     "minecraft:poppy",
