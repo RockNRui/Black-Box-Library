@@ -293,6 +293,12 @@ Lang: - Enchantment levels 1-30 are properly given roman numerals.
 ### **Changelogs**
 
 ```
+V2 Changelog
+
++ Start of massive renaming update.
+```
+
+```
 V1.6 Changelog
 
 + Updated to (1.21? 1.20.5?, latest-) snapshots for Conjuring Brings Trouble. Will update to the next major version when it's out; at the time of writing it's 23w51b.
