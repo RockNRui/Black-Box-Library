@@ -1,6 +1,6 @@
 {
     "values": 
     [
-        "bb:lib/action/drop_kb"
+        "bb:internal/systems/action/drop/kb"
     ]
 }

@@ -1,5 +1,5 @@
 {
 	"values": [
-		"bb:lib/clocks/internal_use/1_tick/as_player"
+		"bb:internal/systems/clocks/internal_use/1_tick/as_player"
 	]
 }

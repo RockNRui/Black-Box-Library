@@ -1,6 +1,5 @@
 {
 	"values": [
-		"bb:sys/load",
-		"inv:setup"
+		"bb:internal/datapack_handling/load"
 	]
 }

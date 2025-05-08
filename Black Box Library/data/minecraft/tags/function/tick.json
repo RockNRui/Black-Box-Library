@@ -1,5 +1,5 @@
 {
 	"values": [
-		"bb:lib/clocks/main"
+		"bb:internal/systems/clocks/main"
 	]
 }

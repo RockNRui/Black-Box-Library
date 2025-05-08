@@ -1,5 +1,5 @@
 {
     "values":[
-      "bb:lib/player_hurt_entity/as_entity"
+      "bb:internal/systems/player_hurt_entity/as_entity"
     ]
   }

@@ -4,9 +4,9 @@ scoreboard players operation @s bbl.hth.amount = @s bbl.heal_queue
 #Store current health
 execute store result score @s bbl.hth.pre_hp run data get entity @s Health
 #Get max health
-execute store result score $hth.max_hp bbl.storage run attribute @s minecraft:generic.max_health get
+execute store result score $hth.max_hp bbl.main run attribute @s minecraft:generic.max_health get
 #Cancel heal check if already at full health
-execute if score @s bbl.hth.pre_hp = $hth.max_hp bbl.storage run scoreboard players set @s bbl.hth.amount 0
+execute if score @s bbl.hth.pre_hp = $hth.max_hp bbl.main run scoreboard players set @s bbl.hth.amount 0
 
 #Attempt heal
 function bb:lib/hpm/player_heal/main

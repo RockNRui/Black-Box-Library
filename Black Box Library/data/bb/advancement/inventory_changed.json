@@ -5,6 +5,6 @@
     }
   },
   "rewards": {
-    "function": "bb:lib/tag_functions/inventory_changed/tick"
+    "function": "bb:internal/systems/tag_functions/inventory_changed/tick"
   }
 }

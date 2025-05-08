@@ -1,6 +1,6 @@
 # Black Box Library
 A collection of Minecraft utility functions and resources to assist in map-making as well as power mechanic based datapacks.
-Currently 23w51b+
+Currently 25w19a+
 
 Credits:
 
@@ -16,11 +16,9 @@ gibbs: True player damage system. Aditional shoutouts for untold hours of debugg
 
 Asdru: Crit checker predicate.
 
-14er: (Following credit retiring in 1.21) RNG function.
+14er: RNG function.
 
 Suso: Original player data storage concept, remade significantly simpler in 1.20.2 tech additions.
-
-`/function bb:sys/credits`
 
 # Purpose
 
@@ -30,7 +28,7 @@ This datapack is designed to be a closed, TPS-optimized system which provides co
 
 Drag & drop the datapack into your world's datapacks folder and `/reload` or `/datapack enable "file/Black Box Library"`.
 
-To uninstall the datapack, run `/function bb:sys/uninstall` and delete the datapack from your world's datapacks folder.
+To uninstall the datapack, run `/function bb:internal/datapack_handling/uninstall` and delete the datapack from your world's datapacks folder.
 Then `/reload` and the uninstallation is complete. Make sure you do not run this command before the datapack is gone, else the system will simply re-install itself!
 
 Important note: This datapack forceloads a chunk at (`/tp @s 4206862 1 4206872 90 0`) to store the shulker box used for the "shulker box trick," as well as other systems that require exact coordinates. Be careful not to unload this. (The datapack will force load it on `/reload`)
@@ -121,58 +119,51 @@ Utilities:
 
 (Utility and tool functions for various tasks.)
 
-`bb:lib/void_kill` - Puts an entity in the void and kills them.
+`bb:lib/void_kill/call` - Puts an entity in the void and kills them.
 
-`bb:lib/get_target_status/get_missing_health` - Returns the target's missing health from their max health in $target_missing_health bbl.storage
+`bb:lib/get_target_status/get_missing_health/call` - Returns the target's missing health from their max health in $target_missing_health bbl.storage
 
-`bb:lib/get_target_status/get_percentage_health` - Returns the target's percentage health remaining in $percentage_health_remaining bbl.storage
+`bb:lib/get_target_status/get_percentage_health/call` - Returns the target's percentage health remaining in $percentage_health_remaining bbl.storage
 
-`bb:lib/minuslevels/main` - Removes X levels WORTH of xp from the player. This should be ran as the desired player, with the desired levels set by `/scoreboard players set $minuslevel bbl.xp X` (Replace X) in the same function, a line prior.
+`bb:lib/minuslevels/call` - Removes X levels WORTH of xp from the player. This should be ran as the desired player, with the desired levels set by `/scoreboard players set $minuslevel bbl.xp X` (Replace X) in the same function, a line prior.
 
-`bb:lib/rng` - Returns a random number between two values, set by `scoreboard players set $rng_min bbl.rng X` for the min value and `scoreboard players set $rng_max bbl.rng Y` for the max value.
+`bb:lib/rng/call` - Returns a random number between two values, set by `scoreboard players set $rng_min bbl.rng X` for the min value and `scoreboard players set $rng_max bbl.rng Y` for the max value.
 
 `bb:lib/drop/checked/X` - Drops a slot from the players inventory. X is the ID of the slot you wish to drop, also supports `mainhand`.
 
-`bb:lib/chat_spam` - Run to clear chat with blank lines.
+`bb:lib/chat/fill_blank/call` - Run to clear chat with blank lines.
 
-`bb:lib/query_light_level` - Return the light at itself in `$light_level bbl.storage`.
+`bb:internal/systems/query_light_level` - Return the light at itself in `$light_level bbl.storage`.
 
-`bb:lib/hide_feedback` - Run in chat menus when a player clicks a button to temporarily disable the sendCommandFeedback gamerule to prevent spamming chat with feedback. Doesn't turn the gamerule on if it is off.
+`bb:lib/chat/hide_feedback/call` - Run in chat menus when a player clicks a button to temporarily disable the sendCommandFeedback gamerule to prevent spamming chat with feedback. Doesn't turn the gamerule on if it is off.
 
-`bb:lib/set_display_light_from_block` - Sets the light level of a block, text, or item display to the light level of the block it's in.
+`bb:internal/systems/set_display_light_from_block` - Sets the light level of a block, text, or item display to the light level of the block it's in.
 
-`bb:lib/vanilla_item_clear/example` - A system that can be used to clear "vanilla" (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system. (Note: Incompatible with items that have durability.)
+`bb:internal/systems/no_iframes` - Cancels i-frames on an entity. Use after applying a different source of damage.
 
-`bb:lib/vanilla_item_replace/example` - A system that can be used to replace "vanilla" (lacking `tag:{}` nbt) versions of items with a specified item. See this function for an example of how to call the system. (Note: This system has much less features then its clearing counterpart, as its sole intentional use is to replace knowledge books for custom crafting mechanics.) (Note: Incompatible with items that have durability.)
+`bb:internal/systems/danger_check/query` - Queries if the player is in danger (with the asociated `bbl.in_danger` tags above) and gives the player a generic error message if they are found to be in danger.
 
-`bb:lib/no_iframes` - Cancels i-frames on an entity. Use after applying a different source of damage.
+`bb:lib/move_detector/generic_listen/call` - After 12 ticks starts listening for any player movement or mouse movement, and when found triggers the tag function `#minecraft:bbl/move/generic` once.
 
-`bb:call/hpm/player/heal, bb:call/hpm/player/damage/true, bb:call/hpm/mob/heal and bb:call/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
+`bb:lib/pldata/read/call` - Reads a data storage unique to the player into `bbl:pldata sudo_root.working_data`.
 
-`bb:lib/danger_check/query` - Queries if the player is in danger (with the asociated `bbl.in_danger` tags above) and gives the player a generic error message if they are found to be in danger.
+`bb:lib/pldata/write/call` - Writes data from `bbl:pldata sudo_root.working_data` into a data storage unique to the player. (Note: Always read before making any changes to the working data, or writing at all. Other systems use this, it's not just for your data!) (An example of where to write to it: `sudo_root.working_data.my_example_field` Just try and use something unique to you, e.g. `sudo_root.working_data.spellsnbells.count`)
 
-`bb:lib/move_detector/generic_listen` - After 12 ticks starts listening for any player movement or mouse movement, and when found triggers the tag function `#minecraft:bbl/move/generic` once.
+`bb:internal/systems/string_manip/concat/start` - Concats (Aka, makes an array into one string) the array in `bbl:concat sudo_root.array` into the string `bbl:concat sudo_root.string`
 
-`bb:lib/pldata/read` - Reads a data storage unique to the player into `bbl:pldata sudo_root.working_data`.
+`bb:internal/systems/hard_reset_map` - Runs the corresponding tag function. This should be safe to spam!
 
-`bb:lib/pldata/write` - Writes data from `bbl:pldata sudo_root.working_data` into a data storage unique to the player. (Note: Always read before making any changes to the working data, or writing at all. Other systems use this, it's not just for your data!) (An example of where to write to it: `sudo_root.working_data.my_example_field` Just try and use something unique to you, e.g. `sudo_root.working_data.spellsnbells.count`)
+`bb:internal/systems/soft_reset_50b` - Runs the corresponding tag function. Meant to only reset things in a small 50 block area, it is up to the mapper to apply such distance limitations. This should be safe to spam!
 
-`bb:lib/concat/start` - Concats (Aka, makes an array into one string) the array in `bbl:concat sudo_root.array` into the string `bbl:concat sudo_root.string`
+`bb:internal/systems/prime_map_for_release` - Runs the corresponding tag function. This should be safe to spam!
 
-`bb:lib/hard_reset_map` - Runs the corresponding tag function. This should be safe to spam!
+`bb:internal/systems/tp_to_xyz/get_xyz` - Stores position information in the storage and scoreboards `bbl:tp sudo_root.full`, `bbl:tp sudo_root.[x, y , or z],` and `bbl.tp_xyz.[x, y, or z]`
 
-`bb:lib/soft_reset_50b` - Runs the corresponding tag function. Meant to only reset things in a small 50 block area, it is up to the mapper to apply such distance limitations. This should be safe to spam!
+`bb:internal/systems/tp_to_xyz/call/storage, bb:internal/systems/tp_to_xyz/call/storage_seperate and bb:internal/systems/tp_to_xyz/call/score` - Tps the entity to the cordinates stored in the respective previously mentioned variables.
 
-`bb:lib/prime_map_for_release` - Runs the corresponding tag function. This should be safe to spam!
+`bb:internal/systems/relco/help` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
 
-`bb:lib/tp_to_xyz/get_xyz` - Stores position information in the storage and scoreboards `bbl:tp sudo_root.full`, `bbl:tp sudo_root.[x, y , or z],` and `bbl.tp_xyz.[x, y, or z]`
-
-`bb:lib/tp_to_xyz/call/storage, bb:lib/tp_to_xyz/call/storage_seperate and bb:lib/tp_to_xyz/call/score` - Tps the entity to the cordinates stored in the respective previously mentioned variables.
-
-
-`relco:` - A system to get the relative cordinates between two points. Run `/function relco:help` in-game for more information.
-
-`inv:save` & `inv:load` - A system to save and load the player's inventory to and from a storage space. (For more info, see: https://github.com/McTsts/inv-manipulation)
+`bb:lib/inv/save/call` & `bb:lib/inv/save/load` - A system to save and load the player's inventory to and from a storage space. (For more info, see: https://github.com/McTsts/inv-manipulation)
 
 
 
@@ -242,32 +233,28 @@ Black, light gray, and purple shulker box loot tables have been overwritten to w
 
 (Uncategorized.)
 
-`/function bb:lib/no_iframes` Will remove iframes from an entity.
-
 `bbl:pldata sudo_root.working_data.bbl.name` - Has the player's name in string format.
 
-Every player is assigned a unique ID number in the scoreboard `bbl.id`. You can run `/function bb:lib/player_id/query` to learn yours and the next one to be assigned.
+Every player is assigned a unique ID number (uniquely calculated from UUID) in the scoreboard `bbl.id`. You can run `/function bb:internal/systems/player_id/query` to learn yours.
 
+
+
+Some outdated stuff I haven't updated yet. Will do so ~maybe~ ~at some point~ ~potentially~.
+
+`function bb:internal/systems/vanilla_item_clear/example` - A system that can be used to clear "vanilla" (lacking `tag:{}` nbt) versions of items. See this function for an example of how to call the system. (Note: Incompatible with items that have durability.)
+
+`function bb:internal/systems/vanilla_item_replace/example` - A system that can be used to replace "vanilla" (lacking `tag:{}` nbt) versions of items with a specified item. See this function for an example of how to call the system. (Note: This system has much less features then its clearing counterpart, as its sole intentional use is to replace knowledge books for custom crafting mechanics.) (Note: Incompatible with items that have durability.)
+
+`bb:lib/hpm/player/heal, bb:lib/hpm/player/damage/true, bb:lib/hpm/mob/heal and bb:lib/hpm/mob/damage/true` - A set of 4 functions to deal true damage or healing to players or mobs. Requires the entity's score in `bbl.damage_queue` or `bbl.heal_queue` to be set to the desired damage or healing.
 
 
 ### **Other Doccumentation**
 
 (Information for advanced use.)
 
-**Lexica Model**
-
-If the Datapack Cartographer (https://github.com/pearuhdox/Cartographer)
-
-and the datapack(s): (any of)
-
-- RIM (N/A, w.i.p.)
-- Inasa (N/A, w.i.p.)
-
-are installed, BBL will inject the the Lexica Cartographia with `CustomModelData:2` and remove enchants. This is to enable the Lexica model with the resourcepack for my more feature-focussed datapacks.
-
-Set the score in the scoreboard `$bbl.config.lexica_inject bbl.storage` to 0 to disable and use a vanilla knowledge book texture (`CustomModelData:1`), else defaults to enabled score of 1.
-
 **Resourcepack**
+
+### This section is to-be-updated at some point, since some new-ish features make it redundant.
 
 THIS RESOURCEPACK IS NOT PART OF BBL'S FEATURES, AND IS NOT REQUIRED TO USE IT. You do not need to worry about having this unless you are using one of my other datapacks which states parts of it are required.
 

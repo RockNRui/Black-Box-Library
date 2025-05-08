@@ -1,8 +1,8 @@
 
 
 #Save current health
-scoreboard players set $player.health_before_hbc bbl.storage 0
-scoreboard players operation $player.health_before_hbc bbl.storage = @s bbl.p_health
+scoreboard players set $player.health_before_hbc bbl.main 0
+scoreboard players operation $player.health_before_hbc bbl.main = @s bbl.p_health
 
 #Save health boost
 execute if predicate bb:has_health_boost at @s run function bb:lib/hpm/player_damage_true/save_health_boost
